@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Clean Water for Everyone</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Proxima Nova', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #003366;
+      color: #FFF7E1;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .left, .right {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .left, .right {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+
+    .left {
+      background-color: #003366;
+      color: #FFF7E1;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      box-shadow:
+        inset 0 0 20px rgba(255, 201, 7, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px rgba(255, 201, 7, 0.6);
+    }
+
+    p.lead {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 5px rgba(255, 201, 7, 0.4);
+    }
+
+    section {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+    }
+
+    section h2 {
+      margin-bottom: 15px;
+      color: #FFC907;
+      font-size: 1.4rem;
+      text-shadow: 0 0 5px rgba(255, 201, 7, 0.7);
+    }
+
+    section p {
+      font-size: 1.1rem;
+      text-shadow: 0 0 3px rgba(255, 201, 7, 0.35);
+    }
+
+    .link-section {
+      cursor: pointer;
+      text-decoration: none;
+      color: #FFF7E1;
+      display: block;
+    }
+
+    .link-section section {
+      color: #FFF7E1;
+    }
+
+    .link-section:hover section {
+      background: rgba(255, 201, 7, 0.2);
+      box-shadow: 0 2px 12px 3px rgba(255, 201, 7, 0.7);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #FFC907;
+      color: #003366;
+      padding: 15px 30px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 6px 20px rgba(255, 184, 77, 0.6);
+      max-width: 550px;
+      box-sizing: border-box;
+    }
+
+    .btn-primary:hover {
+      background-color: #e6a33a;
+      box-shadow: 0 10px 30px rgba(255, 184, 77, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .impact-message {
+      margin-top: 10px;
+      background: rgba(255, 201, 7, 0.15);
+      color: #FFC907;
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-weight: 700;
+      text-align: center;
+      max-width: 300px;  /* Made this slightly narrower */
+      font-size: 0.9rem;
+      box-shadow:
+        0 0 12px 4px rgba(255, 201, 7, 0.6),
+        0 0 18px 6px rgba(255, 201, 7, 0.3);
+      border: 1px solid rgba(255, 201, 7, 0.5);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      cursor: default;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .impact-message:hover {
+      transform: scale(1.07);
+      box-shadow:
+        0 0 20px 8px rgba(255, 201, 7, 0.9),
+        0 0 30px 12px rgba(255, 201, 7, 0.6);
+    }
+
+    .right {
+      background-color: #1a1a1a;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+    }
+
+    .right img {
+      width: 100%;
+      height: auto;
+      max-height: 95vh;
+      object-fit: cover;
+      display: block;
+      margin-top: -15px;
+    }
+
+    .impact-message-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 110px;
+      padding: 30px 0;
+      width: 100%;
+    }
+
+    .topbar {
+      width: 100%;
+      min-height: 80px;
+      background: #fff;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .topbar img {
+      height: 180px;
+      width: auto;
+      margin: 0;
+      display: block;
+      position: absolute;
+      top: -50px;
+      left: 24px;
+    }
+
+    .topbar .btn-primary {
+      position: absolute;
+      top: 20px;
+      right: 32px;
+      z-index: 2;
+      font-size: 1.1rem;
+      width: 96px;
+      height: 42px;
+      padding: 0;
+      margin: 0;
+      align-self: center;
+      box-shadow: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      padding: 16px 0;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <img src="charitywater_logo_horizontal_BlackText.png" alt="charity: water logo" />
+    <a href="https://www.charitywater.org/donate" class="btn-primary" target="_blank" rel="noopener noreferrer">
+      Donate
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="left">
+      <h1>See the Change You Make. Instantly.</h1>
+      <p class="lead">
+        100% of your donation funds clean water for families in need--and we'll show you exactly where every dollar goes, with real time updates and impact you can feel.
+      </p>
+
+      <section>
+        <h2>Our Impact</h2>
+        <p>
+          Since 2006, charity: water has funded more than 64,000 water projects in 29 countries, serving over 14 million people with clean water.
+        </p>
+      </section>
+
+      <a href="https://www.charitywater.org/stories/micro-price-points" target="_blank" rel="noopener noreferrer" class="link-section">
+        <section>
+          <h2>Transparency You Can Trust</h2>
+          <p>
+            We provide real-time updates on every project funded. Track progress from start to finish and see the impact you’re making.
+          </p>
+        </section>
+      </a>
+    </div>
+
+    <div class="right">
+      <img src="6003_Ethiopia_2019_CG-.jpg" alt="Happy family in Ethiopia" />
+      <div class="impact-message-container">
+        <div class="impact-message">
+          Just click the donate button above and see how you can impact the community.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 charity: water. All rights reserved.
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
